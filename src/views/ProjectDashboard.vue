@@ -1,5 +1,4 @@
-<script setup>
-import AddProject from '@/components/AddProject.vue';
+<script setup lang="ts">
 import ProjectListings from '@/components/ProjectListings.vue'
 </script>
 

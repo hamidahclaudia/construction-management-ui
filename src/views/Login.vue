@@ -1,27 +1,23 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import authService from '@/services/authService';
+import { useToast } from 'vue-toastification';
 
 const email = ref('');
 const password = ref('');
-const errorMessages = ref([]);
 const router = useRouter();
+const toast = useToast();
 
 const login = async () => {
-  errorMessages.value = '';
   try {
-    const response = await authService.loginUser( {
+    await authService.loginUser( {
       email: email.value,
       password: password.value
     });
-
-    localStorage.setItem("token", response.token);
-    localStorage.setItem("id", response.id);
     await router.push("/projects");
-
-  } catch (error) {
-    errorMessages.value = error.message;
+  } catch (error: any) {
+    toast.error(error.message)
   }
 }
 </script>

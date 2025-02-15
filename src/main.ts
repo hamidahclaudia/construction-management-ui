@@ -1,16 +1,17 @@
-import './assets/main.css'
 import 'primeicons/primeicons.css'
-import Buefy from 'buefy'
-import 'buefy/dist/buefy.css'
-import router from './router'
-
+import './assets/main.css'
+import Toast from 'vue-toastification'
+import 'vue-toastification/dist/index.css'
 import { createApp } from 'vue'
+
+import router from './router'
 import store from './store'
 import App from './App.vue'
 
 
+
 const app = createApp(App);
 app.use(router);
-app.use(Buefy);
-app.use(store)
+app.use(store);
+app.use(Toast)
 app.mount('#app');

@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Login from "@/views/Login.vue";
 import ProjectDashboard from "@/views/ProjectDashboard.vue";
-import AddProject from "@/components/AddProject.vue";
+import ProjectAddEdit from "@/views/ProjectAddEdit.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,12 +19,12 @@ const router = createRouter({
         {
             path: "/projects/add",
             name: "AddProject",
-            component: AddProject
+            component: ProjectAddEdit
         },
         {
             path: "/projects/:id/edit",
             name: "EditProject",
-            component: AddProject
+            component: ProjectAddEdit
         }
     ]
 })
